@@ -37,7 +37,11 @@ namespace Assets.Modules.Calibration
             var isTabletCalibrating = _webClientManager.Get().Any(c => c.IsCalibrating);
             _webClientCalibration.enabled = isTabletCalibrating;
 
+
             var isVuforiaActive = isHololensCalibrating || isTabletCalibrating;
+            #if STREAM_OBSERVER
+            isVuforiaActive = true;
+            #endif
             _vuforiaBehaviour.enabled = isVuforiaActive;
         }
     }

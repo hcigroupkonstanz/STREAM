@@ -3,63 +3,73 @@ using TMPro;
 using UnityEngine;
 using Vuforia;
 
-public class ObserverController : MonoBehaviour
+namespace Assets.Modules.Observer
 {
-    public GameObject ServerIpInputContainer;
-    public TMP_InputField IpInput;
-    public TextMeshProUGUI IpDisplay;
-    public GameObject IpButton;
-    public GameObject RecalibrateButton;
-
-    public UnityEngine.UI.Image HideUiImage;
-    public GameObject HideUiText;
-
-
-    public void ToggleServerIpInput()
+    public class ObserverController : MonoBehaviour
     {
-        ServerIpInputContainer.SetActive(!ServerIpInputContainer.activeSelf);
-    }
+        public GameObject ServerIpInputContainer;
+        public TMP_InputField IpInput;
+        public TextMeshProUGUI IpDisplay;
+        public GameObject IpButton;
+        public GameObject RecalibrateButton;
+        public GameObject SpectatorButton;
+        public GameObject SpectatorListContainer;
 
-    public void ApplyServerIp()
-    {
-        WebServerAddress.Current = IpInput.text;
-    }
-
-    public void Calibrate()
-    {
-        StreamClient.Instance.IsCalibrating = true;
-    }
+        public UnityEngine.UI.Image HideUiImage;
+        public GameObject HideUiText;
 
 
-    private void OnEnable()
-    {
-        WebServerAddress.OnAdressChange += WebServerAddress_OnAdressChange;
-        WebServerAddress_OnAdressChange();
-        Debug.Log("Vuforia runtime using " + VuforiaRuntimeUtilities.GetActiveFusionProvider());
-    }
+        public void ToggleServerIpInput()
+        {
+            ServerIpInputContainer.SetActive(!ServerIpInputContainer.activeSelf);
+        }
 
-    private void OnDisable()
-    {
-        WebServerAddress.OnAdressChange -= WebServerAddress_OnAdressChange;
-    }
+        public void ApplyServerIp()
+        {
+            WebServerAddress.Current = IpInput.text;
+        }
 
-    private void WebServerAddress_OnAdressChange()
-    {
-        IpDisplay.text = "Current IP:" + WebServerAddress.Current;
-    }
+        public void Calibrate()
+        {
+            StreamClient.Instance.IsCalibrating = true;
+        }
 
-    public void ToggleUi()
-    {
-        var buttonsActive = !IpButton.activeSelf;
 
-        ServerIpInputContainer.SetActive(buttonsActive);
-        IpButton.SetActive(buttonsActive);
-        RecalibrateButton.SetActive(buttonsActive);
-        HideUiText.SetActive(buttonsActive);
+        private void OnEnable()
+        {
+            WebServerAddress.OnAdressChange += WebServerAddress_OnAdressChange;
+            WebServerAddress_OnAdressChange();
+            Debug.Log("Vuforia runtime using " + VuforiaRuntimeUtilities.GetActiveFusionProvider());
 
-        if (buttonsActive)
-            HideUiImage.color = Color.white;
-        else
-            HideUiImage.color = new Color(0, 0, 0, 0);
+            // hide UI by default
+            ToggleUi();
+        }
+
+        private void OnDisable()
+        {
+            WebServerAddress.OnAdressChange -= WebServerAddress_OnAdressChange;
+        }
+
+        private void WebServerAddress_OnAdressChange()
+        {
+            IpDisplay.text = "Current IP:" + WebServerAddress.Current;
+        }
+
+        public void ToggleUi()
+        {
+            var buttonsActive = !IpButton.activeSelf;
+
+            ServerIpInputContainer.SetActive(false);
+            SpectatorListContainer.SetActive(false);
+            IpButton.SetActive(buttonsActive);
+            RecalibrateButton.SetActive(buttonsActive);
+            HideUiText.SetActive(buttonsActive);
+            SpectatorButton.SetActive(buttonsActive);
+
+            if (buttonsActive)
+                HideUiImage.color = Color.white;
+            else
+                HideUiImage.color = new Color(0, 0, 0, 0);
+        }
     }
 }

@@ -14,13 +14,6 @@ using Cysharp.Threading.Tasks;
 
 namespace Assets.Modules.Interactions
 {
-#if UNITY_EDITOR_OSX
-    public class VoiceCommands : MonoBehaviour
-    {
-    }
-
-#else
-
     public class VoiceCommands : InputSystemGlobalListener, IMixedRealitySpeechHandler
     {
         const int RECOGNITION_SHUTDOWN_DELAY_MS = 3000;
@@ -168,5 +161,4 @@ namespace Assets.Modules.Interactions
             }
         }
     }
-#endif
 }

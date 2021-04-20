@@ -27,6 +27,7 @@ namespace Assets.Modules.Networking
             EditorGUILayout.LabelField($"DebugIndicators: {client.DebugIndicators}");
             EditorGUILayout.LabelField($"ZenMode: {client.ZenMode}");
             EditorGUILayout.LabelField($"Selection Progress: {client.SelectionProgress}");
+            EditorGUILayout.LabelField($"Spectating: {client.Spectating?.Id}");
 
             if (GUILayout.Button("Reset Calibration") && Application.isPlaying)
                 client.OffsetMatrix = Matrix4x4.identity;

@@ -185,6 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugText: {fileID: 7486356139233800653}
+  EnableOnCalibration: 0
+  EnableOnNetworkError: 0
 --- !u!1 &1174419393359054389
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,8 +562,7 @@ GameObject:
   - component: {fileID: 5434750163711514791}
   - component: {fileID: 1024248530865588358}
   - component: {fileID: 5142281601125317619}
-  - component: {fileID: 1365666144787742026}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Dim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +608,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9800ee7451bd6744a9fb941bcba2841, type: 2}
+  - {fileID: 2100000, guid: 766b1ce4d2b0a6940a6e13d5000dd1ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -640,18 +641,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Padding: {x: 0.015, y: 0.015}
---- !u!114 &1365666144787742026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5964197880013428840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f59d64a21d338c74fa8e75e87a4f9e3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7171889220304306998
 GameObject:
   m_ObjectHideFlags: 0
@@ -5345,7 +5334,7 @@ ParticleSystem:
 --- !u!199 &3439724404718947094
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

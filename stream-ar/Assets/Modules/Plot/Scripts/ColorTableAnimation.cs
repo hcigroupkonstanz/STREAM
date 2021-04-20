@@ -58,6 +58,10 @@ namespace Assets.Modules.Plots
 
             var hasSizeChanged = _colorTexture == null || _colorTexture.width != col.width;
 
+            #if STREAM_OBSERVER
+            hasSizeChanged = true;
+            #endif
+
             if (hasSizeChanged)
             {
                 if (_colorTexture != null)
@@ -112,13 +116,16 @@ namespace Assets.Modules.Plots
         {
             // use custom applyTexture instead of Graphics.Blit because
             // the latter won't work reliably on hololens...
-            //Graphics.Blit(source, _colorTexture);
+            #if STREAM_OBSERVER
+            Graphics.Blit(source, _colorTexture);
+            #else
 
             var kernelHandle = _transitionColorShader.FindKernel("ApplyTexture");
             _transitionColorShader.SetInt("InputSize", source.width);
             _transitionColorShader.SetTexture(kernelHandle, "Input", source);
             _transitionColorShader.SetTexture(kernelHandle, "Result", _colorTexture);
             _transitionColorShader.Dispatch(kernelHandle, source.width, 1, 1);
+            #endif
         }
 
         private void AnimateTexture(Texture2D endTex)

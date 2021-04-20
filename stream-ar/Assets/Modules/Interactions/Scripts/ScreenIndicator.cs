@@ -221,7 +221,7 @@ namespace Assets.Modules.Interactions
 
         private void ClearTextIcons()
         {
-            foreach (var ti in new [] { TopLeft, Left, BottomLeft, TopRight, Right, BottomRight, Center })
+            foreach (var ti in new[] { TopLeft, Left, BottomLeft, TopRight, Right, BottomRight, Center })
                 ti.Text = "";
 
             foreach (var ti in Options)

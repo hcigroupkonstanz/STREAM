@@ -13,6 +13,7 @@ namespace Assets.Modules.Networking
             _status = GetComponent<NetworkStatus>();
         }
 
+#if !STREAM_OBSERVER
         public void InputText(string text)
         {
             if (text == HololensClickable.BACKSPACE)
@@ -29,5 +30,6 @@ namespace Assets.Modules.Networking
                 _status.IpInput += text;
             }
         }
+#endif
     }
 }

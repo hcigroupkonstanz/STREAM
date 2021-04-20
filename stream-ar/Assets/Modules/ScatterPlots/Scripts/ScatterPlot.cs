@@ -133,12 +133,12 @@ namespace Assets.Modules.ScatterPlots
             ClearTempTextures();
 
             var width = Mathf.Max(1, _plot.Data.Length);
-            bool hasSizeChanged = false;
+            // bool hasSizeChanged = false;
             if (_texDesc.width != width)
             {
                 _texDesc.width = width;
                 InitTexture();
-                hasSizeChanged = true;
+                // hasSizeChanged = true;
             }
 
             UpdateIndices();
@@ -146,19 +146,19 @@ namespace Assets.Modules.ScatterPlots
             var targetPosTexture = CreateTexture2D(i => new Color(_plot.Data[i].X, _plot.Data[i].Y, 0, 1));
             var targetNullTexture = CreateTexture2D(i => new Color(_plot.Data[i].IsXNull ? 1 : 0, _plot.Data[i].IsYNull ? 1 : 0, 0, 1));
 
-            if (hasSizeChanged)
-            {
+            // if (hasSizeChanged)
+            // {
                 SetRenderTexture(targetPosTexture, PositionTexture, _transitionPositionShader);
                 SetRenderTexture(targetNullTexture, NullTexture, _transitionNullShader);
 
                 Destroy(targetPosTexture);
                 Destroy(targetNullTexture);
-            }
-            else if (_plot.Data.Length != 0)
-            {
-                AnimateTexture(targetPosTexture, PositionTexture, _transitionPositionShader);
-                AnimateTexture(targetNullTexture, NullTexture, _transitionNullShader);
-            }
+            // }
+            // else if (_plot.Data.Length != 0)
+            // {
+            //     AnimateTexture(targetPosTexture, PositionTexture, _transitionPositionShader);
+            //     AnimateTexture(targetNullTexture, NullTexture, _transitionNullShader);
+            // }
         }
 
 
@@ -212,15 +212,19 @@ namespace Assets.Modules.ScatterPlots
         {
             // use custom applyTexture instead of Graphics.Blit because
             // the latter won't work reliably on hololens...
-            //Graphics.Blit(initialTexture, _dataTexture);
+            #if STREAM_OBSERVER
+            Graphics.Blit(source, target);
+            #else
 
             var kernelHandle = shader.FindKernel("ApplyTexture");
             shader.SetInt("InputSize", source.width);
             shader.SetTexture(kernelHandle, "Input", source);
             shader.SetTexture(kernelHandle, "Result", target);
             shader.Dispatch(kernelHandle, source.width, 1, 1);
+            #endif
         }
 
+#if !STREAM_OBSERVER
         private void AnimateTexture(Texture2D endTex, RenderTexture resultTex, ComputeShader shader, bool cleanupEndTexture = true)
         {
             var startTex = CreateTexture2D();
@@ -255,6 +259,7 @@ namespace Assets.Modules.ScatterPlots
                 () => ClearTempTextures())
                 .AddTo(_animationDisposables);
         }
+#endif
 
         private void ClearTempTextures()
         {

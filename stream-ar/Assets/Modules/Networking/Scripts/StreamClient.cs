@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 using UniRx;
-using System.Threading.Tasks;
+using Assets.Modules.ArClients;
 
 namespace Assets.Modules.Networking
 {
@@ -22,6 +22,13 @@ namespace Assets.Modules.Networking
                     _instance = new GameObject($"[StreamClient]").AddComponent<StreamClient>();
                 return _instance;
             }
+        }
+
+        public readonly ReactiveProperty<ArClient> SpectatingRx = new ReactiveProperty<ArClient>();
+        public ArClient Spectating
+        {
+            get => SpectatingRx.Value;
+            set => SpectatingRx.Value = value;
         }
 
         public readonly ReactiveProperty<Matrix4x4> OffsetMatrixRx = new ReactiveProperty<Matrix4x4>(Matrix4x4.identity);
