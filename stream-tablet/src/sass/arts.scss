@@ -1,0 +1,45 @@
+@import '~sass-material-colors/sass/sass-material-colors';
+
+.menu-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu-btn {
+    width: 250px;
+    height: 250px;
+    margin: 25px;
+
+    mat-icon {
+        font-size: 140px;
+        width: 100%;
+        height: 70%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .title {
+        width: 100%;
+        font-size: 28px;
+        font-weight: normal;
+    }
+}
+
+
+mat-tab-group,
+.mat-tab-body-wrapper {
+    height: 100% !important;
+}
+
+
+.mat-button-toggle-checked {
+    background: material-color('light-green', '500');
+}

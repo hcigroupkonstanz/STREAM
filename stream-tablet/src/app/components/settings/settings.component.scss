@@ -1,0 +1,14 @@
+.mat-tab-body-container {
+    display: flex;
+    justify-content: center;
+}
+
+.tab-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    * {
+        width: 768px;
+    }
+}

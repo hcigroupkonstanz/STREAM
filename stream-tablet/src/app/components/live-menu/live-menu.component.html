@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="overlay overlay-left" #overlayLeft></div>
+    <div class="overlay overlay-right" #overlayRight></div>
+
+    <div *ngFor="let menu of blindMenu | keyvalue"
+        class="live-btn"
+        id="{{ menu.key }}"
+        [ngStyle]="getStyle(menu.value.metadata)"
+        [ngClass]="{
+            disabled: menu.value?.metadata?.disabled
+        }">
+        <mat-icon>{{ menu.value.icon }}</mat-icon>
+        <div class="title">{{ getMenuText(menu.value) }}</div>
+        <div class="active-indicator" *ngIf="menu.value.metadata.active !== undefined">
+            <div *ngIf="menu.value.metadata.active">
+                <mat-icon>check</mat-icon>
+            </div>
+            <div *ngIf="!menu.value.metadata.active">
+                <mat-icon>clear</mat-icon>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="options?.length > 0" class="live-options">
+        <button mat-flat-button
+            *ngFor="let option of options"
+            class="entry"
+            color="accent"
+            (click)="triggerAction(option)">
+            <mat-icon>{{ option.icon }}</mat-icon>
+            <div class="title">{{ getMenuText(option) }}</div>
+        </button>
+    </div>
+</div>

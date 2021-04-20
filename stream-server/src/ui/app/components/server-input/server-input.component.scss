@@ -1,0 +1,23 @@
+@import '../../../sass/nord.scss';
+
+.server-input-container {
+    background-color: $nord1;
+    display: flex;
+
+    pre, code {
+        color: $nord5;
+        margin: 0;
+        font-family: 'Fira Mono', monospace;
+        margin: 5px 0;
+    }
+
+    .cmd {
+        width: 100%;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+    }
+
+    [contenteditable]:focus {
+        outline: 0px solid transparent;
+    }
+}

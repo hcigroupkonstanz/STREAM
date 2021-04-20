@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="main">
+        <app-server-input class="input"></app-server-input>
+        <app-log class="log"></app-log>
+    </div>
+
+    <div class="sidebar">
+        <app-client-list></app-client-list>
+        <hr/>
+        <app-network-counter></app-network-counter>
+    </div>
+
+    <div class="study">
+        <button mat-raised-button color="primary" (click)="onTutorialClick()">{{ loadTutorialText }}</button>
+        <button mat-raised-button color="accent" (click)="onStudyClick()">{{ loadStudyText }}</button>
+    </div>
+</div>

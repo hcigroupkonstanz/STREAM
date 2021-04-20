@@ -1,0 +1,35 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "baseUrl": "./",
+        "outDir": "./dist/out-tsc",
+        "sourceMap": true,
+        "declaration": false,
+        "module": "es2015",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es5",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "lib": [
+            "es2017",
+            "dom"
+        ],
+        "paths": {
+            "@stream/root/*": ["./src/app/*"],
+
+            "@stream/components": ["./src/app/components/index"],
+            "@stream/components/*": ["./src/app/components/*"],
+            "@stream/directives": ["./src/app/directives/index"],
+            "@stream/models": ["./src/app/models/index"],
+            "@stream/services": ["./src/app/services/index"],
+            "@stream/environment": ["./src/environments/environment"],
+
+            "core-js/es7/reflect": [
+                "node_modules/core-js/proposals/reflect-metadata"
+            ]
+        }
+    }
+}

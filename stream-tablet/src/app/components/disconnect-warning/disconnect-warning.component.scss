@@ -1,0 +1,12 @@
+.warning-container {
+    position: absolute;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.mini-warning {
+    margin-top: 10px;
+    margin-left: 10px;
+}

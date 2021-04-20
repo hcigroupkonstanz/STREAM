@@ -1,0 +1,42 @@
+@import 'visualization';
+
+.chart-content {
+    display: grid;
+    grid-template-columns: [axisY] 50px [vis] 1fr [sidebar] 150px;
+    grid-template-rows: [vis] 1fr [axisX] 50px;
+}
+
+.shadow {
+    grid-row: 1 / span 2;
+    grid-column: 1 / span 2;
+}
+
+.axis-x,
+.axis-y {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+
+    button {
+        font-size: 24px;
+    }
+}
+
+.axis-x {
+    grid-row: axisX;
+    grid-column: vis;
+}
+
+.axis-y {
+    grid-row: vis;
+    grid-column: axisY;
+
+    .vtext {
+        writing-mode: vertical-rl;
+        text-orientation: sideways;
+        transform: rotate(180deg);
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

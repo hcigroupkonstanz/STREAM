@@ -1,0 +1,25 @@
+<div class="warning-container">
+    <div *ngIf="orientation === 'vertical'" class="mini-warning">
+        <button mat-mini-fab color="primary">
+            <mat-icon>gps_fixed</mat-icon>
+        </button>
+    </div>
+
+    <div *ngIf="inactiveTrackers == 1" class="mini-warning">
+        <button mat-mini-fab color="warn">
+            <mat-icon>location_on</mat-icon>
+        </button>
+    </div>
+
+    <div *ngIf="inactiveTrackers > 1" class="mini-warning">
+        <button mat-mini-fab color="warn">
+            <mat-icon>location_off</mat-icon>
+        </button>
+    </div>
+
+    <div *ngIf="!sio.connected" class="mini-warning">
+        <button mat-mini-fab color="warn">
+            <mat-icon>wifi_off</mat-icon>
+        </button>
+    </div>
+</div>

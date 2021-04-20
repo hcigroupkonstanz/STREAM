@@ -1,0 +1,61 @@
+<div class="dialog-overlay" *ngIf="dialogDimensionX && plot">
+    <app-dimension-dialog [plot]="plot" [axis]="'x'" (close)="dialogDimensionX = false"></app-dimension-dialog>
+</div>
+
+<div class="dialog-overlay" *ngIf="dialogDimensionY && plot">
+    <app-dimension-dialog [plot]="plot" [axis]="'y'" (close)="dialogDimensionY = false"></app-dimension-dialog>
+</div>
+
+<div class="dialog-overlay" *ngIf="selectedFilter">
+    <app-filter-dialog [filter]="selectedFilter" (close)="selectedFilter = null"></app-filter-dialog>
+</div>
+
+
+<div class="chart-content">
+
+    <div class="shadow"></div>
+
+    <div class="vis" *ngIf="plot">
+        <app-chart2d
+            [height]="800"
+            [width]="800"
+            [margin]="margin"
+            [invertX]="loadedMetadata !== 'front'"
+            [plot]="plot">
+        </app-chart2d>
+    </div>
+
+
+    <div class="sidebar">
+        <button mat-flat-button (click)="togglePlotFilter()" [ngStyle]="getButtonStyle(true)" class="filter-btn">
+
+            <div class="content">
+                <mat-icon>
+                    {{ plot?.useFilter ? 'check_box' : 'check_box_outline_blank' }}
+                </mat-icon>
+                <div class="title">
+                    Filter
+                </div>
+            </div>
+        </button>
+
+        <button mat-flat-button (click)="back()" [ngStyle]="getButtonStyle(false)" class="back-btn">
+            <div class="content">
+                <mat-icon>arrow_back</mat-icon>
+                <div class="title">Back</div>
+            </div>
+        </button>
+    </div>
+
+    <div class="axis-x">
+        <button mat-button color="primary" (click)="openDimensionDialog('x')">
+            {{ dimX || 'None' }}
+        </button>
+    </div>
+
+    <div class="axis-y">
+        <button mat-button color="primary" (click)="openDimensionDialog('y')">
+            <span class="vtext">{{ dimY || 'None' }}</span>
+        </button>
+    </div>
+</div>

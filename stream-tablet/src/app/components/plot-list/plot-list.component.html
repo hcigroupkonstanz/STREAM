@@ -1,0 +1,12 @@
+<div class="menu-container">
+    <button *ngFor="let plot of plotService.plots"
+        (click)="modifyScatterplot(plot.id)" [disabled]="hasUserClicked" mat-flat-button [style.background-color]="plot.color" class="menu-btn">
+        <mat-icon>scatter_plot</mat-icon>
+        <div class="title">Modify {{ plot.id }}</div>
+    </button>
+
+    <button (click)="createScatterplot()" [disabled]="hasUserClicked" mat-flat-button color="primary" class="menu-btn">
+        <mat-icon>add</mat-icon>
+        <div class="title">Create</div>
+    </button>
+</div>

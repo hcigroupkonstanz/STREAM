@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="title">
+        <h2>
+            Edit
+            <mat-button-toggle-group>
+                <mat-button-toggle [checked]="axis === 'x'" (change)="changeAxis('x')">X</mat-button-toggle>
+                <mat-button-toggle [checked]="axis === 'y'" (change)="changeAxis('y')">Y</mat-button-toggle>
+            </mat-button-toggle-group>
+            -Axis
+        </h2>
+
+        <form class="search-form">
+            <mat-form-field>
+                <input matInput type="search" placeholder="Search..." [(ngModel)]="searchQuery" name="search">
+                <button mat-button *ngIf="searchQuery" matSuffix mat-icon-button aria-label="Clear" (click)="searchQuery=''">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+
+        </form>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <mat-list class="entry-list">
+        <mat-list-item *ngFor="let dimension of getDimensions()" >
+            <div
+                class="list-item"
+                [ngClass]="{ selected: selectedDim === dimension.column }"
+                (click)="onDimensionClick(dimension.column)">
+                {{ dimension.displayName }}
+            </div>
+        </mat-list-item>
+    </mat-list>
+
+    <mat-divider></mat-divider>
+
+    <div class="bottom">
+        <button mat-button (click)="onCloseClick()">Close</button>
+    </div>
+</div>

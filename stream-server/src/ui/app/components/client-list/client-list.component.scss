@@ -1,0 +1,56 @@
+mat-expansion-panel {
+    border-radius: 0;
+}
+
+mat-expansion-panel-header {
+    .header-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        span {
+            padding-left: 5px;
+        }
+    }
+}
+
+.webClient {
+    mat-icon {
+        color: #b71c1c;
+    }
+}
+
+.unityClient {
+    mat-icon {
+        color: #1565C0;
+    }
+}
+
+.tracker {
+    mat-icon {
+        color: #558B2F;
+    }
+}
+
+.plot {
+    mat-icon {
+        color: black;
+    }
+}
+
+.link {
+    mat-icon {
+        color: black;
+    }
+}
+
+
+pre {
+    max-height: 200px;
+    overflow-y: scroll;
+    margin: 0;
+    background-color: #CFD8DC;
+    font-family: 'Fira Mono', monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}

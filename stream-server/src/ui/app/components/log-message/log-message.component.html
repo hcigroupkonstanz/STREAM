@@ -1,0 +1,10 @@
+<div class="msg-container">
+    <div class="log-message">
+        <pre class="level-{{log.level}}">[{{log.created | date:'HH:mm:ss.SSS' }}] {{ log.message }}</pre>
+    </div>
+
+
+    <div class="meta-info">
+        <code><pre><span *ngIf="log.count > 1" color="warn">[{{log.count}}]</span> <span class="group-{{log.group}}">[{{log.origin}}]</span></pre></code>
+    </div>
+</div>

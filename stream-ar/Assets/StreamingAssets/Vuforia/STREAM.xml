@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="hololens_calibration" size="0.391000 0.273700" />
+    <ImageTarget name="hololens_op1" size="0.391000 0.273700" />
+    <ImageTarget name="hololens_op2" size="0.391000 0.273700" />
+    <ImageTarget name="webclient_calibration" size="0.170000 0.119000" />
+  </Tracking>
+</QCARConfig>

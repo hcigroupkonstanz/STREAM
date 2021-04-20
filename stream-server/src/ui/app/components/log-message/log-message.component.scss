@@ -1,0 +1,108 @@
+@import '../../../sass/nord.scss';
+$meta-width: 250px;
+
+.msg-container {
+    border-radius: 0px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-width: 300px;
+
+    > mat-card-content {
+        width: 100%;
+    }
+}
+
+pre, code {
+    margin: 0;
+    font-family: 'Fira Mono', monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.log-message {
+    width: calc(100% - #{$meta-width});
+    display: inline-block;
+    word-break: break-all;
+}
+
+.level-0 {
+    color: $nord11;
+    font-weight: bold;
+}
+
+.level-1 {
+    color: $nord13;
+}
+.level-2 {
+    color: $nord4;
+}
+.level-3 {
+    color: $nord7;
+}
+
+.meta-info {
+    width: calc(#{$meta-width} - 10px);
+    display: inline-block;
+    text-align: right;
+    padding-right: 10px;
+    user-select: none;
+    color: $nord4;
+
+    > div {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+    }
+}
+
+.mat-chip {
+    user-select: none;
+}
+
+.group-web {
+    background: $nord3;
+    color: white;
+}
+
+.group-unity {
+    background: $nord10;
+    color: white;
+}
+
+.group-tangibles {
+    background: $nord11;
+    color: white;
+}
+
+.group-db {
+    background: $nord8;
+    color: white;
+}
+
+.group-gui {
+    background: $nord15;
+    color: white;
+}
+
+.group-tracking {
+    background: $nord13;
+    color: white;
+}
+
+.group-data {
+    background: $nord14;
+    color: white;
+}
+
+.group-core {
+    background: $nord1;
+    color: white;
+}
+
+.group-stream {
+    background: $nord12;
+    color: white;
+}

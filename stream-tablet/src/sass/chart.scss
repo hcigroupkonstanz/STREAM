@@ -1,0 +1,70 @@
+/* Bar charts */
+.bar {
+    stroke: black;
+    stroke-width: 2px;
+    transition: fill 0.2s linear;
+}
+
+
+/* Scatterplot */
+
+.point {
+    stroke-width: 1px;
+    stroke: black;
+    transition: 0.3s linear;
+}
+
+.axis line {
+    opacity: 1 !important;
+}
+
+.dataLine {
+    stroke: black;
+    stroke-width: 1px;
+    stroke-dasharray: 5px 10px;
+    fill: none;
+}
+
+/* Overview line chart */
+
+.line-point {
+    fill: white;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+.tick-line {
+    fill: white;
+    stroke: black;
+    stroke-width: 2px;
+    stroke-dasharray: 10 10;
+}
+
+.tick-label {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.line-tick-label {
+    font-size: 50px;
+}
+
+.bar-tick-label {
+    /* See bar visualisation for text alignment! */
+    font-size: 34px;
+    dominant-baseline: central;
+    text-anchor: center;
+}
+
+/* Parallel Coordinates */
+
+.pcline {
+    // stroke-width: 3px;
+    // transition: d 1s linear;
+    // -webkit-transition: d 1s linear;
+}
+
+
+.tick line {
+    opacity: 0.1;
+}

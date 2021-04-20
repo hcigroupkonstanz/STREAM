@@ -1,0 +1,54 @@
+<mat-tab-group  *ngIf="plot" mat-stretch-tabs [backgroundColor]="'primary'">
+    <mat-tab label="Plot">
+        <app-scatter-plot></app-scatter-plot>
+    </mat-tab>
+
+
+    <mat-tab label="General">
+        <div style="margin: 20px">
+            <button mat-flat-button color="primary" (click)="changePos()">Change position</button>
+            <button mat-flat-button color="accent" (click)="delete()" style="margin-left: 50px;">Delete</button>
+
+            <br>
+
+            X:
+            <mat-form-field>
+                <mat-select [(value)]="plot.dimX">
+                    <mat-option *ngFor="let dim of dims.dimensions" [value]="dim.column">
+                        {{ dim?.displayName }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            Y:
+            <mat-form-field>
+                <mat-select [(value)]="plot.dimY">
+                    <mat-option *ngFor="let dim of dims.dimensions" [value]="dim.column">
+                        {{ dim?.displayName }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <button mat-flat-button color="primary" routerLink="dimensions">Change Dimensions</button>
+
+            <div>
+                Color:
+                <div *ngFor="let color of colors" class="color-selection" [style.background-color]="color"
+                    [ngClass]="{ selected: plot.color === color }" (click)="setColor(color)" class="col"></div>
+            </div>
+
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Position">
+        <app-plot-placement></app-plot-placement>
+    </mat-tab>
+
+
+
+    <mat-tab label="Debug">
+        <pre><code>{{ plot.toJson() | json }}</code></pre>
+    </mat-tab>
+</mat-tab-group>

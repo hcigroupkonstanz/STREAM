@@ -1,0 +1,54 @@
+<div class="root">
+
+    <div class="dialog-overlay" *ngIf="dialogDimensionLeft">
+            <app-dimension-dialog [plot]="plotLeft" [axis]="'y'" (close)="dialogDimensionLeft = false"></app-dimension-dialog>
+        </div>
+
+        <div class="dialog-overlay" *ngIf="dialogDimensionRight">
+            <app-dimension-dialog [plot]="plotRight" [axis]="'y'" (close)="dialogDimensionRight = false"></app-dimension-dialog>
+        </div>
+
+        <div class="dialog-overlay" *ngIf="selectedFilter">
+            <app-filter-dialog [filter]="selectedFilter" (close)="selectedFilter = null"></app-filter-dialog>
+        </div>
+
+    <div class="chart-content">
+        <div class="shadow"></div>
+
+        <div class="sidebar">
+            <button mat-flat-button (click)="back()" class="back-btn">
+                <div class="content">
+                    <mat-icon>arrow_back</mat-icon>
+                    <div class="title">Back</div>
+                </div>
+            </button>
+        </div>
+
+        <div class="vis">
+            <div appChart [width]="width" [height]="height" [margin]="margin"></div>
+        </div>
+
+
+
+        <div class="dims">
+            <div class="left">
+                <div>
+                    <button mat-button [ngStyle]="getBackground('left')" (click)="dialogDimensionLeft = true">{{ (dimLeft.length > 32)? (dimLeft | slice:0:32) + '..' : (dimLeft) }}</button>
+                </div>
+            </div>
+
+            <div class="middle">
+                <button mat-button color="primary" class="direction-indicator" (click)="switchDirection()">
+                    <mat-icon *ngIf="loadedMetadata.includes('ltr')">arrow_forward</mat-icon>
+                    <mat-icon *ngIf="loadedMetadata.includes('rtl')">arrow_back</mat-icon>
+                </button>
+            </div>
+
+            <div class="right">
+                <div>
+                    <button mat-button [ngStyle]="getBackground('right')" (click)="dialogDimensionRight = true">{{ (dimRight.length > 32)? (dimRight | slice:0:32) + '..' : (dimRight) }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

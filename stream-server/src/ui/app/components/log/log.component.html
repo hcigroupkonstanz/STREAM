@@ -1,0 +1,8 @@
+<div class="container">
+    <div #scrollContainer class="log">
+        <app-log-message *ngFor="let entry of log.messages; trackBy: getId" [log]="entry"></app-log-message>
+    </div>
+    <button mat-mini-fab (click)="scrollAutomatically()" *ngIf="manualScroll" class="btn-autoscroll">
+        <mat-icon>arrow_downward</mat-icon>
+    </button>
+</div>

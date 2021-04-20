@@ -1,0 +1,78 @@
+<mat-expansion-panel class="webClient" *ngFor="let client of clients.webClients; trackBy: getId">
+    <mat-expansion-panel-header>
+        <span class="header-content">
+            <mat-icon>tablet_mac</mat-icon>
+            <span>({{client.id}}) {{ client.name }}</span>
+        </span>
+    </mat-expansion-panel-header>
+
+    <code><pre>{{ client | json }}</pre></code>
+
+    <mat-action-row>
+        <button mat-flat-button color="primary" (click)="toggleWebSettings(client.id)">Settings {{ client.screenMenu?.selectedMenu === 'settings' ? 'Off' : 'On' }}</button>
+        <button mat-flat-button color="primary" (click)="restartWebClient(client.id)">Restart</button>
+        <button mat-flat-button color="primary" (click)="calibrateWebClient(client.id)">Calibrate {{ client.isCalibrating ? 'Off' : 'On' }}</button>
+    </mat-action-row>
+</mat-expansion-panel>
+
+<mat-expansion-panel class="unityClient" *ngFor="let client of clients.unityClients; trackBy: getId">
+    <mat-expansion-panel-header>
+        <span class="header-content">
+            <mat-icon>gamepad</mat-icon>
+            <span>({{client.id}}) {{ client.name }}</span>
+        </span>
+    </mat-expansion-panel-header>
+
+    <code><pre>{{ client | json }}</pre></code>
+
+    <mat-action-row *ngIf="client.type === 'ar'">
+        <button mat-flat-button color="primary" (click)="toggleIndicators(client.id, true)">Toggle Indicators</button>
+        <button mat-flat-button color="primary" (click)="calibrateUnityClient(client.id)">Toggle Calibration</button>
+    </mat-action-row>
+</mat-expansion-panel>
+
+<mat-expansion-panel class="tracker" *ngFor="let client of clients.trackers; trackBy: getId">
+    <mat-expansion-panel-header>
+        <span class="header-content">
+            <mat-icon>memory</mat-icon>
+            <span>({{client.id}}) {{ client.name }}</span>
+        </span>
+    </mat-expansion-panel-header>
+
+    <code><pre>{{ client | json }}</pre></code>
+
+    <mat-action-row>
+        <button mat-flat-button color="primary" (click)="setOrigin(1, client.id)">Set origin 1</button>
+        <button mat-flat-button color="primary" (click)="setOrigin(2, client.id)">Set origin 2</button>
+    </mat-action-row>
+</mat-expansion-panel>
+
+<mat-expansion-panel class="plot" *ngFor="let plot of clients.plots; trackBy: getId">
+    <mat-expansion-panel-header>
+        <span class="header-content">
+            <mat-icon>scatter_plot</mat-icon>
+            <span>({{plot.id}}) {{ plot.dimX }} | {{ plot.dimY }}</span>
+        </span>
+    </mat-expansion-panel-header>
+
+    <code><pre>{{ plot | json }}</pre></code>
+
+    <mat-action-row>
+        <button mat-flat-button color="warn" (click)="deletePlot(plot.id)">Delete</button>
+    </mat-action-row>
+</mat-expansion-panel>
+
+<mat-expansion-panel class="link" *ngFor="let link of clients.links; trackBy: getId">
+    <mat-expansion-panel-header>
+        <span class="header-content">
+            <mat-icon>timeline</mat-icon>
+            <span>({{link.id}}) {{ link.upstream }} -> {{ link.downstream }}</span>
+        </span>
+    </mat-expansion-panel-header>
+
+    <code><pre>{{ link | json }}</pre></code>
+
+    <mat-action-row>
+        <button mat-flat-button color="warn" (click)="deleteLink(link.id)">Delete</button>
+    </mat-action-row>
+</mat-expansion-panel>

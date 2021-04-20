@@ -1,0 +1,21 @@
+<router-outlet></router-outlet>
+
+<div class="fullscreen" *ngIf="client.isCalibrating">
+    <app-webclient-calibration style="pointer-events: all !important;"></app-webclient-calibration>
+</div>
+
+<div class="fullscreen">
+    <app-disconnect-warning></app-disconnect-warning>
+</div>
+
+<div class="fullscreen">
+    <app-voice-overlay></app-voice-overlay>
+</div>
+
+<!--
+<div class="debug-nav">
+    <button mat-mini-fab color="primary" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+</div>
+-->

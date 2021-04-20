@@ -1,0 +1,51 @@
+<div>IP Addresses:</div>
+<div *ngFor="let ip of clients.ips">
+    {{ ip }}
+</div>
+
+<br/>
+
+<div>Unity Messages:</div>
+<div>Out</div>
+<div *ngFor="let x of msgService.outUnityMessages | keyvalue">
+    {{x.key}}: {{x.value}}
+</div>
+
+
+<br/>
+<div>In (AR)</div>
+<div *ngFor="let x of msgService.inUnityArMessages | keyvalue">
+    {{x.key}}: {{x.value}}
+</div>
+
+
+<br/>
+<div>In (Tracking)</div>
+<div *ngFor="let x of msgService.inUnityTrackingMessages | keyvalue">
+    {{x.key}}: {{x.value}}
+</div>
+
+<hr/>
+
+<div>SocketIO Messages:</div>
+<div>Out</div>
+<div *ngFor="let x of msgService.outSocketIoMessages | keyvalue">
+    {{x.key}}: {{x.value}}
+</div>
+
+<br/>
+
+<div>In</div>
+<div *ngFor="let x of msgService.inSocketIoMessages | keyvalue">
+    {{x.key}}: {{x.value}}
+</div>
+
+
+
+<br/>
+
+<div>Bandwidth</div>
+<div> Incoming from Unity: {{ msgService.bandwidthIncUnity.value }} kb/s </div>
+<div> Outgoing to Unity: {{ msgService.bandwidthOutUnity.value }} kb/s </div>
+<div> Incoming from SocketIO: {{ msgService.bandwidthIncSocketIo.value }} kb/s </div>
+<div> Outgoing to SocketIO: {{ msgService.bandwidthOutSocketIo.value }} kb/s </div>

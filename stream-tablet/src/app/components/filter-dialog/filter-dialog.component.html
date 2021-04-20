@@ -1,0 +1,41 @@
+<div class="container">
+
+    <div class="title">
+        <h2> Edit Filter </h2>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="colors">
+        <div *ngFor="let color of colors"
+            class="color-box"
+            [style.background-color]="color"
+            (click)="filter.color = color">
+            <div *ngIf="color === filter.color">
+                <mat-icon>check_circle_outline</mat-icon>
+            </div>
+        </div>
+        <div *ngFor="let gradient of gradients"
+            class="color-box"
+            [style]="getGradientStyle(gradient)"
+            (click)="filter.color = gradient">
+            <div *ngIf="gradient === filter.color">
+                <mat-icon>check_circle_outline</mat-icon>
+            </div>
+        </div>
+    </div>
+
+
+
+    <mat-divider></mat-divider>
+
+    <div class="bottom">
+        <button mat-flat-button color="warn" (click)="onDeleteFilter()">
+            Delete
+        </button>
+        <button mat-button (click)="onClose()">
+            Close
+        </button>
+    </div>
+</div>
+

@@ -1,0 +1,53 @@
+<div class="settings-form">
+    <mat-card>
+        <mat-card-title> Client Properties </mat-card-title>
+        <mat-card-content>
+
+            <mat-form-field>
+                <input matInput type="text" maxlength="255" placeholder="Client Name" [(ngModel)]="client.name">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="number" placeholder="Owner ID" [(ngModel)]="client.owner">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="number" maxlength="255" placeholder="PPI" [(ngModel)]="client.ppi">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="number" readonly="true" maxlength="255" placeholder="Device Width" [(ngModel)]="client.resolutionWidth">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="number" readonly="true" maxlength="255" placeholder="Device Height" [(ngModel)]="client.resolutionHeight">
+            </mat-form-field>
+
+
+            <div style="display: grid; grid-template-columns: 1fr auto auto; grid-gap: 20px;">
+                <mat-form-field *ngFor="let clientTracker of clientTrackers; let i = index" style="grid-column: 1;">
+                    <mat-select placeholder="Associated Tracker"  [(ngModel)]="clientTrackers[i]" (selectionChange)="updateTrackers()">
+                        <mat-option [value]="-1">
+                            No Tracker
+                        </mat-option>
+
+                        <mat-option *ngFor="let t of trackers; trackBy: getId" [value]="t.id">
+                            <span *ngIf="t.isActive" style="color: #4CAF50">◉</span>
+                            {{ t.name || '[' + t.hardwareId + ']' }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <button mat-mini-fab color="primary" (click)="addTracker()" style="grid-column: 2;">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <button mat-mini-fab color="accent" (click)="removeTracker()" style="grid-column: 3;" [disabled]="clientTrackers.length <= 1">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+
+            <button mat-flat-button color="accent" (click)="startCalibration()">Calibrate</button>
+
+            <div style="margin-top: 20px; margin-bottom: 20px;"></div>
+
+            <button mat-flat-button color="warn" (click)="goBack()">Back</button>
+        </mat-card-content>
+    </mat-card>
+
+</div>

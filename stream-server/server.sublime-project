@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"folder_exclude_patterns": [
+				"node_modules",
+				"dist",
+                ".vscode"
+			],
+			"file_exclude_patterns": [
+			]
+		}
+	]
+}

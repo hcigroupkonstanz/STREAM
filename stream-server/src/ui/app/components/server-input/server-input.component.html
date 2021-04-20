@@ -1,0 +1,7 @@
+<div class="server-input-container">
+    <pre>» </pre>
+    <pre #cmd class="cmd" contenteditable="true"
+        (keydown.enter)="onEnter($event)"
+        (keydown.arrowup)="historyBack($event)"
+        (keydown.arrowdown)="historyForward($event)"></pre>
+</div>

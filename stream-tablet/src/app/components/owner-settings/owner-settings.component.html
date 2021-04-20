@@ -1,0 +1,55 @@
+<div class="settings-form" *ngIf="ownerService.CurrentOwner | async; let owner">
+    <mat-card>
+        <mat-card-title>Plot Placement Height</mat-card-title>
+        <mat-card-content>
+            <mat-slider
+                [min]="-0.1"
+                [max]="0.1"
+                [tickInterval]="'auto'"
+                [step]="0.001"
+                [(ngModel)]="owner.placementHeightOffset"
+                (input)="owner.placementHeightOffset = $event.value">
+            </mat-slider>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-title>Screen Indicator Position</mat-card-title>
+        <mat-card-content>
+            <div>
+                <mat-button-toggle-group>
+                    <mat-button-toggle
+                        [checked]="owner.indicatorPosition === 'cursor'"
+                        (change)="setIndicatorPosition('cursor', $event)">
+                        Cursor
+                    </mat-button-toggle>
+                    <mat-button-toggle
+                        [checked]="owner.indicatorPosition === 'center'"
+                        (change)="setIndicatorPosition('center', $event)">
+                        Center
+                    </mat-button-toggle>
+                    <mat-button-toggle
+                        [checked]="owner.indicatorPosition === 'topleft'"
+                        (change)="setIndicatorPosition('topleft', $event)">
+                        Top Left
+                    </mat-button-toggle>
+                    <mat-button-toggle
+                        [checked]="owner.indicatorPosition === 'topright'"
+                        (change)="setIndicatorPosition('topright', $event)">
+                        Top Right
+                    </mat-button-toggle>
+                    <mat-button-toggle
+                        [checked]="owner.indicatorPosition === 'bottomleft'"
+                        (change)="setIndicatorPosition('bottomleft', $event)">
+                        Bottom Left
+                    </mat-button-toggle>
+                    <mat-button-toggle
+                        [checked]="owner.indicatorPosition === 'bottomright'"
+                        (change)="setIndicatorPosition('bottomright', $event)">
+                        Bottom Right
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>

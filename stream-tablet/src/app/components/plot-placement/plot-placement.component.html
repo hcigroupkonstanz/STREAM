@@ -1,0 +1,27 @@
+<div class="placement" #root [ngStyle]="getStyle()">
+    <div class="icon main" *ngIf="!lockedToAxis">
+        <mat-icon>pin_drop</mat-icon>
+        <div class="title">Tap to place</div>
+    </div>
+
+    <div class="icon main" *ngIf="lockedToAxis">
+        <mat-icon>lock</mat-icon>
+        <div class="title">Release to place</div>
+    </div>
+
+
+    <div class="info-icons" *ngIf="!lockedToAxis">
+        <div class="icon">
+            <mat-icon>import_export</mat-icon>
+            <div class="title">Pan for distance</div>
+        </div>
+        <div class="icon">
+            <mat-icon>lock_open</mat-icon>
+            <div class="title">Press to lock to alignment</div>
+        </div>
+        <div class="icon">
+            <mat-icon>screen_rotation</mat-icon>
+            <div class="title">Turn device for rotation</div>
+        </div>
+    </div>
+</div>
