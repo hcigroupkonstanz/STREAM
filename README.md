@@ -90,6 +90,6 @@ This repository is split into separate projects:
 
 ## Acknowledgments
 
-Thanks to NASA for offering an open data set, which was used for conducting the study in this project: https://exoplanetarchive.ipac.caltech.edu/
+We thank NASA for offering an open data set, which was used for conducting the study in this project: https://exoplanetarchive.ipac.caltech.edu/
 
-This research was funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) – Project-ID 251654672 – TRR 161 (Project C01) and SMARTACT (BMBF, Grant 01EL1820A).
+This research was funded by the [Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) – Project-ID 251654672 – TRR 161 (Project C01)](https://www.sfbtrr161.de/) and [SMARTACT (BMBF, Grant 01EL1820A)](https://www.uni-konstanz.de/smartact/).
