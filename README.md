@@ -5,11 +5,9 @@
 
 <p align="center">
     <strong>
-            <a href="TODO">Publication</a>
+        <a href="https://dl.acm.org/doi/10.1145/3411764.3445298">Publication</a>
         •
-        <a href="TODO">PDF</a>
-        •
-        <a href="TODO">Video</a>
+        <a href="https://www.youtube.com/watch?v=5tEgNzuehuM">Video</a>
     </strong>
 </p>
 
