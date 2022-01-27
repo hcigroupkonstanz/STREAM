@@ -1,8 +1,5 @@
 cff-version: 1.2.0
-title: >-
-  STREAM: Exploring the Combination of
-  Spatially-Aware Tablets with Augmented Reality
-  Head-Mounted Displays for Immersive Analytics 
+title: "STREAM: Exploring the Combination of Spatially-Aware Tablets with Augmented Reality Head-Mounted Displays for Immersive Analytics"
 message: Please cite this software using these metadata.
 type: software
 authors:
@@ -23,8 +20,27 @@ authors:
     family-names: Reiterer
     email: Harald.Reiterer@uni-konstanz.de
     affiliation: 'HCI Group, University of Konstanz'
-preferred-citation: conference-paper
-identifiers:
-  - type: doi
-    value: 10.1145/3411764.3445298
+preferred-citation:
+  type: conference-paper
+  authors:
+  - given-names: Sebastian
+    family-names: Hubenschmid
+    email: Sebastian.Hubenschmid@uni-konstanz.de
+    affiliation: 'HCI Group, University of Konstanz'
+    orcid: 'https://orcid.org/0000-0002-8704-8503'
+  - given-names: Johannes
+    family-names: Zagermann
+    email: Johannes.Zagermann@uni-konstanz.de
+    affiliation: 'HCI Group, University of Konstanz'
+  - given-names: Simon
+    family-names: Butscher
+    email: Simon.Butscher@uni-konstanz.de
+    affiliation: 'HCI Group, University of Konstanz'
+  - given-names: Harald
+    family-names: Reiterer
+    email: Harald.Reiterer@uni-konstanz.de
+    affiliation: 'HCI Group, University of Konstanz'
+  doi: "10.1145/3411764.3445298"
+  title: "STREAM: Exploring the Combination of Spatially-Aware Tablets with Augmented Reality Head-Mounted Displays for Immersive Analytics"
+  year: 2021
 repository-code: 'https://github.com/hcigroupkonstanz/STREAM'
