@@ -43,4 +43,10 @@ preferred-citation:
   doi: "10.1145/3411764.3445298"
   title: "STREAM: Exploring the Combination of Spatially-Aware Tablets with Augmented Reality Head-Mounted Displays for Immersive Analytics"
   year: 2021
+  address: "New York, NY, USA"
+  booktitle: "Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems"
+  location: "Yokohama, Japan"
+  series: "CHI '21"
+  numpages: 14
+  articleno: 469
 repository-code: 'https://github.com/hcigroupkonstanz/STREAM'
