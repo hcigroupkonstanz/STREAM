@@ -2,7 +2,7 @@
 using Assets.Modules.WebClients;
 using System.Linq;
 using UnityEngine;
-using Vuforia;
+//using Vuforia;
 
 namespace Assets.Modules.Calibration
 {
@@ -15,7 +15,7 @@ namespace Assets.Modules.Calibration
 
         private WebClientManager _webClientManager;
 
-        private VuforiaBehaviour _vuforiaBehaviour;
+        //private VuforiaBehaviour _vuforiaBehaviour;
 
         private void OnEnable()
         {
@@ -24,7 +24,7 @@ namespace Assets.Modules.Calibration
             _hololensRoomscaleCalibration = FindObjectOfType<RoomscaleHololensCalibration>();
             _hololensSingleCalibration = FindObjectOfType<LegacyHololensCalibration>();
             _webClientCalibration = FindObjectOfType<WebClientCalibration>();
-            _vuforiaBehaviour = FindObjectOfType<VuforiaBehaviour>();
+            //_vuforiaBehaviour = FindObjectOfType<VuforiaBehaviour>();
         }
 
 
@@ -37,8 +37,8 @@ namespace Assets.Modules.Calibration
             var isTabletCalibrating = _webClientManager.Get().Any(c => c.IsCalibrating);
             _webClientCalibration.enabled = isTabletCalibrating;
 
-            var isVuforiaActive = isHololensCalibrating || isTabletCalibrating;
-            _vuforiaBehaviour.enabled = isVuforiaActive;
+            //var isVuforiaActive = isHololensCalibrating || isTabletCalibrating;
+            //_vuforiaBehaviour.enabled = isVuforiaActive;
         }
     }
 }

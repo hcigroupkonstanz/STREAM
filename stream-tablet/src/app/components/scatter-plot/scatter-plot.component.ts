@@ -16,13 +16,13 @@ import { PathContainer } from '../chart2d/path-container';
 import { Chart2dComponent } from '../chart2d/chart2d.component';
 import { PathSelection } from '../chart2d/path-selection';
 import { GesturePanel } from './gesture-panel';
-import { untilDestroyed } from 'ngx-take-until-destroy';
 import { filter, delay, take, takeUntil } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, merge, Subject } from 'rxjs';
 import { Location } from '@angular/common';
 import { Utils } from '@stream/root/utils';
 import { GestureAxis } from './gesture-axis';
+import { untilDestroyed } from '@ngneat/until-destroy';
 
 @Component({
     selector: 'app-scatter-plot',

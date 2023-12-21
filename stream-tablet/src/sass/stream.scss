@@ -1,5 +1,3 @@
-@import '~sass-material-colors/sass/sass-material-colors';
-
 .menu-container {
     width: 100%;
     height: 100%;
@@ -41,5 +39,5 @@ mat-tab-group,
 
 
 .mat-button-toggle-checked {
-    background: material-color('light-green', '500');
+    background: #8bc34a;
 }

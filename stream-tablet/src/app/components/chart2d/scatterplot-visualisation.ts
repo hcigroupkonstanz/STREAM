@@ -41,8 +41,8 @@ export class ScatterplotVisualisation extends ChartElement {
         this.dataContainer.selectAll('.point')
             .data(data)
             .enter().append('rect')
-                .attr('x', d => scaleX(d[1]) - DATA_SIZE / 2)
-                .attr('y', d => scaleY(d[2]) - DATA_SIZE / 2)
+                .attr('x', d => scaleX(d[1] || 0) - DATA_SIZE / 2)
+                .attr('y', d => scaleY(d[2] || 0) - DATA_SIZE / 2)
                 .attr('width', DATA_SIZE)
                 .attr('height', DATA_SIZE)
                 .attr('class', 'point')
@@ -55,8 +55,8 @@ export class ScatterplotVisualisation extends ChartElement {
             .transition()
             .duration(500)
             .ease(d3.easeLinear)
-            .attr('x', d => scaleX(d[1]) - DATA_SIZE / 2)
-            .attr('y', d => scaleY(d[2]) - DATA_SIZE / 2)
+            .attr('x', d => scaleX(d[1] || 0) - DATA_SIZE / 2)
+            .attr('y', d => scaleY(d[2] || 0) - DATA_SIZE / 2)
             .attr('fill', d => colorTable.htmlColors[d[0]]);
     }
 

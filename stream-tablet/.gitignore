@@ -3,10 +3,12 @@
 # compiled output
 /tmp
 /out-tsc
+/*.pem
 
 # dependencies
 /node_modules
 package-lock.json
+.angular/
 
 
 # IDEs and editors

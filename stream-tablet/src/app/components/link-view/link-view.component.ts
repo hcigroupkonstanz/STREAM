@@ -19,12 +19,12 @@ import { ActionsService, ColortableService, PlotService, LinkService, Logger, Da
 import { ChartDirective } from '@stream/directives';
 import { ParallelCoordinatesVisualisation } from './parallel-coordinates-visualisation';
 import { ParallelCoordinatesAxis } from './parallel-coordinates-axis';
-import { untilDestroyed } from 'ngx-take-until-destroy';
-import { filter, delay, sampleTime, takeUntil } from 'rxjs/operators';
+import { filter, delay, sampleTime, takeUntil, take } from 'rxjs/operators';
 import { Subscription, merge, Subject } from 'rxjs';
 import { PathContainer } from '../chart2d/path-container';
 import { PathSelection } from '../chart2d/path-selection';
 import { GestureAxis } from '../scatter-plot/gesture-axis';
+import { untilDestroyed } from '@ngneat/until-destroy';
 
 @Component({
     selector: 'app-link-view',
@@ -109,7 +109,7 @@ export class LinkViewComponent implements AfterViewInit, OnInit, OnDestroy {
 
 
 
-        this.route.paramMap.subscribe(async params => {
+        this.route.paramMap.pipe(take(1)).subscribe(async params => {
             const link = await this.links.getLink(Number(params.get('id')));
             if (link) {
                 this.init(link);

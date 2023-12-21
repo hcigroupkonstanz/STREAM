@@ -14,14 +14,14 @@ SamplerState PointClamp;
 [numthreads(1, 1, 1)]
 void ApplyTexture(uint3 id : SV_DispatchThreadID)
 {
-	Result[id.xy] = Input.SampleLevel(PointClamp, float2(id.x / (double)(InputSize - 1), 0), 0);
+	Result[id.xy] = Input.SampleLevel(PointClamp, float2(id.x / (float)(InputSize - 1), 0), 0);
 }
 
 
 [numthreads(1, 1, 1)]
 void TransitionTexture(uint3 id : SV_DispatchThreadID)
 {
-	double count = max(1, InputSize - 1);
+	float count = max(1, InputSize - 1);
 	float4 start = Start.SampleLevel(PointClamp, float2(id.x / count, 0), 0);
 	float4 target = Target.SampleLevel(PointClamp, float2(id.x / count, 0), 0);
 	Result[id.xy] = lerp(start, target, max(0, min(AnimationProgress, 1)));

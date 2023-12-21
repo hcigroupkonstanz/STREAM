@@ -10,6 +10,8 @@ import * as requireFromString from 'require-from-string';
 import * as path from 'path';
 import { Subject } from 'rxjs';
 
+import { StudyData } from '../../../../data/study';
+
 const STUDY_TABLE = 'study';
 
 export class StudyController extends Service {
@@ -28,23 +30,26 @@ export class StudyController extends Service {
     }
 
     private async initDb() {
+        this.load('');
         const hasTable = await this.sessionDb.hasTable(STUDY_TABLE);
         let init = false;
         if (hasTable) {
             this.logDebug('Found existing table, attempting to load previous configuration');
-            const config = await this.sessionDb.query(`SELECT * FROM ${STUDY_TABLE}`, {}).toPromise();
+            // const config = await this.sessionDb.query(`SELECT * FROM ${STUDY_TABLE}`, {}).toPromise();
 
-            if (config) {
-                this.logInfo(`Starting with configuration ${config.name}, use "study.list()" for config files, "study.load('<config>')" to load config`);
-                this.load(config.name, false);
-                init = true;
-            }
+            // if (config) {
+            //     this.logInfo(`Starting with configuration ${config.name}, use "study.list()" for config files, "study.load('<config>')" to load config`);
+            //     this.load(config.name, false);
+            //     init = true;
+            // }
         }
 
         if (!init) {
-            setTimeout(() => {
-                this.logInfo(`Starting without configuration, use "study.list()" for config files, "study.load('<config>')" to begin`);
-            }, 1000);
+            // this.load('');
+
+            // setTimeout(() => {
+            //     this.logInfo(`Starting without configuration, use "study.list()" for config files, "study.load('<config>')" to begin`);
+            // }, 1000);
         }
     }
 
@@ -66,22 +71,23 @@ export class StudyController extends Service {
     public async load(file: string, reloadDbs = true) {
         try {
             this.logInfo(`Loading configuration file: ${file}`);
-            const filePath = path.join(this.dataDir, `${file}.ts`);
-            const fileContent = await fs.promises.readFile(filePath);
-            const compiledContent = this.compiler.compile(fileContent.toString(), filePath);
-            const config: Credentials = requireFromString(compiledContent) as Credentials;
+            // const filePath = path.join(this.dataDir, `${file}.ts`);
+            // const fileContent = await fs.promises.readFile(filePath);
+            // const compiledContent = this.compiler.compile(fileContent.toString(), filePath);
+            // const config: Credentials = requireFromString(compiledContent) as Credentials;
+            const config = StudyData;
             this.logInfo(`Imported configuration file ${file}`);
 
             let dataProvider: DataProvider;
             switch (config.type) {
-                case 'debug':
-                    dataProvider = new DebugDataProvider(config.dimensions, config.aggregations);
-                    break;
+                // case 'debug':
+                //     dataProvider = new DebugDataProvider(config.dimensions, config.aggregations);
+                //     break;
 
-                case 'sql':
-                    const dataProviderDB = new MssqlDatabase(config.options);
-                    dataProvider = new SqlDataProvider(dataProviderDB, config.dimensions, config.aggregations);
-                    break;
+                // case 'sql':
+                //     const dataProviderDB = new MssqlDatabase(config.options);
+                //     dataProvider = new SqlDataProvider(dataProviderDB, config.dimensions, config.aggregations);
+                //     break;
 
                 case 'csv':
                     dataProvider = new CsvDataProvder(config.options, config.dimensions, config.aggregations);
@@ -116,6 +122,9 @@ export class StudyController extends Service {
                 name: file
             });
         } catch (e) {
+            if (e instanceof Error) {
+                this.logError(e.stack);
+            }
             this.logError(e.message);
         }
     }

@@ -134,6 +134,7 @@ namespace Assets.Modules.ScatterPlots
                 DataDimensionManager.Instance
                     .GetDimension(dim)
                     .Where(d => d != null)
+                    .TakeUntilDisable(this)
                     .Subscribe(dataDim =>
                     {
                         ClearTicks();

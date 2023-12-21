@@ -1,10 +1,10 @@
-import { untilDestroyed } from 'ngx-take-until-destroy';
 import * as Hammer from 'hammerjs';
 import * as _ from 'lodash';
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { WebClient, ScreenMenuItem } from '@stream/models';
 import { ActionsService } from '@stream/services';
 import { filter } from 'rxjs/operators';
+import { untilDestroyed } from '@ngneat/until-destroy';
 
 @Component({
     selector: 'app-live-menu',

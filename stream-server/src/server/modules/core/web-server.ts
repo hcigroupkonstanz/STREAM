@@ -1,4 +1,5 @@
-import * as http from 'http';
+import * as fs from 'fs';
+import * as https from 'https';
 import * as path from 'path';
 import * as express from 'express';
 import * as bodyparser from 'body-parser';
@@ -12,14 +13,19 @@ export class WebServer extends Service {
     public get groupName(): string { return 'web'; }
 
     private app: express.Application;
-    private server: http.Server;
+    private server: https.Server;
     private isRunning = false;
 
     public constructor(private webPort: number, private webRoot: string) {
         super();
 
+        setTimeout(() => {
+            this.logDebug(path.resolve(webRoot));
+        }, 1000);
+
         this.app = express();
         this.app.set('port', this.webPort);
+        console.log('Running on port ' + this.webPort);
 
         // handle POST data
         this.app.use(bodyparser.urlencoded({ extended: false }));
@@ -32,7 +38,7 @@ export class WebServer extends Service {
         this.app.use(express.static(path.join(this.webRoot)));
     }
 
-    public start(): http.Server {
+    public start(): https.Server {
         // add default route for 404s last
         this.app.use((req, res, next) => {
             res.sendFile(path.join(this.webRoot, 'index.html'));
@@ -43,7 +49,10 @@ export class WebServer extends Service {
         this.isRunning = true;
 
         // start server
-        this.server = http.createServer(this.app);
+        this.server = https.createServer({
+            key: fs.readFileSync('./key.pem'),
+            cert: fs.readFileSync('./cert.pem')
+        }, this.app);
         this.server.listen(this.webPort, () => {
             this.logInfo(`Web server listening on 0.0.0.0:${this.webPort}`);
         });

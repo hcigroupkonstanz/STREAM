@@ -3,8 +3,8 @@ import { Plot, WebClient } from '@stream/models';
 import { Component, OnInit, ElementRef, Input, ViewChild, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { map, take, filter } from 'rxjs/operators';
-import { untilDestroyed } from 'ngx-take-until-destroy';
 import { Utils } from '@stream/root/utils';
+import { untilDestroyed } from '@ngneat/until-destroy';
 
 @Component({
     selector: 'app-plot-placement',

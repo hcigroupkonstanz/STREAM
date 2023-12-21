@@ -211,7 +211,7 @@ namespace Assets.Modules.Interactions
 
         private void LateUpdate()
         {
-            if (_client.IndicatorPosition == "cursor")
+            if (_client && _client.IndicatorPosition == "cursor")
             {
                 transform.LookAt(_cam.position);
                 transform.Rotate(0, 180f, 0);

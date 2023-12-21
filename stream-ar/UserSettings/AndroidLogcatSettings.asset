@@ -1,0 +1,109 @@
+{
+    "m_SelectedDeviceId": "GB62XT0000RG",
+    "m_SelectedPackage": {
+        "deviceId": "GB62XT0000RG",
+        "name": "com.hci.uni.kn.STREAM",
+        "processId": 19391,
+        "exited": false
+    },
+    "m_SelectedPriority": 0,
+    "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "GB62XT0000RG",
+            "name": "com.magicleap.homemenu",
+            "processId": 5562,
+            "exited": false
+        },
+        {
+            "deviceId": "GB62XT0000RG",
+            "name": "com.hci.uni.kn.STREAM",
+            "processId": 14937,
+            "exited": true
+        },
+        {
+            "deviceId": "GB62XT0000RG",
+            "name": "com.hci.uni.kn.STREAM",
+            "processId": 16055,
+            "exited": true
+        },
+        {
+            "deviceId": "GB62XT0000RG",
+            "name": "com.hci.uni.kn.STREAM",
+            "processId": 17833,
+            "exited": false
+        },
+        {
+            "deviceId": "GB62XT0000RG",
+            "name": "com.hci.uni.kn.STREAM",
+            "processId": 19391,
+            "exited": false
+        }
+    ],
+    "m_Tags": {
+        "m_Entries": [
+            {
+                "m_Name": "Filter by all listed tags",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "No Filter",
+                "m_Selected": true
+            },
+            {
+                "m_Name": "",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "Tag Control...",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "Unity",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "CRASH",
+                "m_Selected": false
+            }
+        ]
+    },
+    "m_MemoryViewerState": {
+        "MemoryWindowHeight": 300.0,
+        "MemoryWindowWidth": 170.0,
+        "MemoryTypeEnabled": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "MemoryGroup": 2,
+        "Behavior": 0
+    },
+    "m_FilterOptions": {
+        "m_Filter": "",
+        "m_UseRegularExpressions": false,
+        "m_MatchCase": false
+    },
+    "m_SymbolPaths": [],
+    "m_CaptureVideoSettings": {
+        "TimeLimitEnabled": false,
+        "TimeLimit": 180,
+        "VideoSizeEnabled": false,
+        "VideoSizeX": 1280,
+        "VideoSizeY": 720,
+        "BitRateEnabled": false,
+        "BitRateK": 20000,
+        "DisplayIdEnabled": false,
+        "DisplayId": ""
+    }
+}

@@ -3,6 +3,8 @@ import * as sqlite from 'better-sqlite3';
 import { WorkerMessage, WorkerService } from '../core';
 import * as cluster from 'cluster';
 import * as fs from 'fs';
+import * as path from 'path';
+import { BehaviorSubject, filter, firstValueFrom } from 'rxjs';
 
 export const BETTER_SQLITE_WORKER = __filename;
 
@@ -10,6 +12,8 @@ export class BetterSqliteDatabaseWorker extends WorkerService {
     private db: any;
     private dbPath: string;
     private isMemory = false;
+
+    private isOpen = new BehaviorSubject<boolean>(false);
 
     public constructor() {
         super(false);
@@ -35,7 +39,7 @@ export class BetterSqliteDatabaseWorker extends WorkerService {
                     break;
 
                 case 'm:hasTable':
-                    this.sendResponse(msg, this.hasTable(c.tablename));
+                    this.sendResponse(msg, await this.hasTable(c.tablename));
                     break;
 
                 case 'm:initTable':
@@ -73,9 +77,9 @@ export class BetterSqliteDatabaseWorker extends WorkerService {
         try {
             this.db = sqlite(dbPath, {
                 fileMustExist: false,
-                memory: isMemory,
                 readonly: false
             });
+            this.isOpen.next(true);
         } catch (err) {
             this.logError(JSON.stringify(err));
         }
@@ -95,6 +99,7 @@ export class BetterSqliteDatabaseWorker extends WorkerService {
         this.close();
 
         if (!this.isMemory) {
+            fs.mkdirSync(path.resolve(path.dirname(this.dbPath)), { recursive: true });
             const backupName = `${this.dbPath}_${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.db`;
             this.logDebug(`Renaming DB to ${backupName}`);
             await fs.promises.rename(this.dbPath, backupName);
@@ -105,7 +110,11 @@ export class BetterSqliteDatabaseWorker extends WorkerService {
     }
 
 
-    public hasTable(tablename: string): boolean {
+    public async hasTable(tablename: string): Promise<boolean> {
+        await firstValueFrom(this.isOpen.pipe(filter(isOpen => isOpen)));
+        // awful workaround
+        await new Promise(resolve => setTimeout(resolve, 3000));
+
         const statement = `SELECT name FROM sqlite_master WHERE type='table' AND name='${tablename}'`;
 
         const result = this.query(statement, {});

@@ -28,6 +28,7 @@ Shader "Filter/TransparentFilter"
             ColorMask ARGB
 
             CGPROGRAM
+
             #pragma vertex vert
             #pragma fragment frag
             #pragma geometry geo

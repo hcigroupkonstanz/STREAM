@@ -1,0 +1,9 @@
+stream-server/.angular
+stream-server/dist
+stream-server/node_modules
+stream-server/package-lock.json
+
+stream-tablet/.angular
+stream-tablet/dist
+stream-tablet/node_modules
+stream-tablet/package-lock.json

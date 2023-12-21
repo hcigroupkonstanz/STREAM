@@ -6,10 +6,10 @@ import { ChartDirective } from '@stream/directives';
 import { Logger, DataDimensionService, FilterService, ColortableService } from '@stream/services';
 import { ScatterplotVisualisation } from './scatterplot-visualisation';
 import { ChartAxis } from './chart-axis';
-import { untilDestroyed } from 'ngx-take-until-destroy';
 import { filter, auditTime } from 'rxjs/operators';
 import { DataLabels } from './data-labels';
 import { merge } from 'rxjs';
+import { untilDestroyed } from '@ngneat/until-destroy';
 
 @Component({
     selector: 'app-chart2d',

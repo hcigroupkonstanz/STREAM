@@ -12,6 +12,10 @@
     <app-voice-overlay></app-voice-overlay>
 </div>
 
+<div class="fullscreen overlay" *ngIf="!orientation.isInitialized" style="pointer-events: all;">
+    <button mat-flat-button color="primary" (click)="initOrientation()" class="initButton">Initialize Device Orientation</button>
+</div>
+
 <!--
 <div class="debug-nav">
     <button mat-mini-fab color="primary" (click)="goBack()">

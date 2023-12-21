@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { SocketIO } from './socket-io.service';
 import { Logger } from './logger.service';
 import { WebClient, NC_WEBCLIENT } from '@stream/models';
+import { OrientationService } from './orientation.service';
 
 
 @Injectable({
@@ -12,7 +13,8 @@ export class WebClientUpdaterService {
 
     constructor(
         private socketio: SocketIO,
-        private logger: Logger) {
+        private logger: Logger,
+        private orientationService: OrientationService) {
     }
 
     public init(): void {
@@ -39,6 +41,10 @@ export class WebClientUpdaterService {
                     this.logger.warn(`Unknown command ${cmd} for webclient`);
                     break;
             }
+        });
+
+        this.orientationService.state.subscribe(state => {
+            WebClient.Instance.orientation = state;
         });
     }
 

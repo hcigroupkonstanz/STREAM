@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, HostListener } from '@angular/core';
 import { SocketIO, WebClientUpdaterService, OwnerService, RemoteRestartService } from '@stream/services';
 import { WebClient, NC_WEBCLIENT_INTERACTION_LOG } from '@stream/models';
+import { OrientationService } from './services/orientation.service';
 
 @Component({
     selector: 'app-root',
@@ -11,8 +12,10 @@ import { WebClient, NC_WEBCLIENT_INTERACTION_LOG } from '@stream/models';
 
 export class AppComponent {
     client = WebClient.Instance;
+    orientation = this.orientationService;
 
     public constructor(
+        private orientationService: OrientationService,
         private webClientUpdater: WebClientUpdaterService, // for initialization
         private ownerServer: OwnerService, // for initialization
         private router: Router,
@@ -53,5 +56,13 @@ export class AppComponent {
     @HostListener('window:resize', ['$event'])
     onResize(event) {
         this.webClientUpdater.updateDeviceSize();
+    }
+
+    initOrientation(): void {
+        this.orientationService.initialize();
+    }
+
+    ignoreOrientation(): void {
+        this.orientationService.isInitialized = true;
     }
 }

@@ -2,9 +2,9 @@ import * as _ from 'lodash';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SocketIO, TrackerService } from '@stream/services';
 import { WebClient } from '@stream/models';
-import { untilDestroyed } from 'ngx-take-until-destroy';
 import { filter } from 'rxjs/operators';
 import { merge } from 'rxjs';
+import { untilDestroyed } from '@ngneat/until-destroy';
 
 @Component({
     selector: 'app-disconnect-warning',

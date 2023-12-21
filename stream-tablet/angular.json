@@ -18,7 +18,7 @@
                 "./src/sass"
               ]
             },
-            "outputPath": "../server/dist/stream-tablet",
+            "outputPath": "../stream-server/dist/stream-tablet",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -60,7 +60,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "stream-tablet:build"
+            "browserTarget": "stream-tablet:build",
+            "ssl": true,
+            "sslKey": "key.pem",
+            "sslCert": "cert.pem",
+            "disableHostCheck": true
           },
           "configurations": {
             "production": {

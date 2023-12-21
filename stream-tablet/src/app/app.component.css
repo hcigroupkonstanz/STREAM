@@ -11,6 +11,21 @@
     pointer-events: none;
 }
 
+.overlay {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.initButton {
+    width: 30%;
+    height: 30%;
+    margin: 50px;
+}
+
 .debug-nav {
     position: absolute;
     right: 10px;

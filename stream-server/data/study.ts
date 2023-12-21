@@ -153,4 +153,4 @@ const credentials: Credentials = {
     ]
 };
 
-module.exports = credentials;
+export const StudyData = credentials;

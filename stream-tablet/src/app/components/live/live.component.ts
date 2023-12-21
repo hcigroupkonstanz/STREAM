@@ -3,10 +3,10 @@ import { OwnerService, PlotService, LinkService, ActionsService } from '@stream/
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ArClient, ScreenMenuItem, WebClient, Link, Plot } from '@stream/models';
 import { Router } from '@angular/router';
-import { untilDestroyed } from 'ngx-take-until-destroy';
 import { merge } from 'rxjs';
 import { delay, sampleTime, filter } from 'rxjs/operators';
 import { Utils } from '@stream/root/utils';
+import { untilDestroyed } from '@ngneat/until-destroy';
 
 const MENU_LINK = '/live/menu';
 const DEFAULT_PROGRESS_DURATION = 2;

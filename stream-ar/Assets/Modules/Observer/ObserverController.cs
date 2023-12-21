@@ -1,7 +1,7 @@
 ﻿using Assets.Modules.Networking;
 using TMPro;
 using UnityEngine;
-using Vuforia;
+//using Vuforia;
 
 public class ObserverController : MonoBehaviour
 {
@@ -35,7 +35,7 @@ public class ObserverController : MonoBehaviour
     {
         WebServerAddress.OnAdressChange += WebServerAddress_OnAdressChange;
         WebServerAddress_OnAdressChange();
-        Debug.Log("Vuforia runtime using " + VuforiaRuntimeUtilities.GetActiveFusionProvider());
+        //Debug.Log("Vuforia runtime using " + VuforiaRuntimeUtilities.GetActiveFusionProvider());
     }
 
     private void OnDisable()

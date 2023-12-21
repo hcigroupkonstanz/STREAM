@@ -4,14 +4,17 @@
 </h1>
 
 <p align="center">
-    <strong>
-        <a href="https://dl.acm.org/doi/10.1145/3411764.3445298">Publication</a>
-        •
-        <a href="https://www.youtube.com/watch?v=5tEgNzuehuM">Video</a>
-    </strong>
+	<strong>
+    		<a href="TODO">Publication</a>
+		•
+		<a href="TODO">PDF</a>
+		•
+		<a href="TODO">Video</a>
+	</strong>
 </p>
-
-![STREAM combines spatially-aware tablets with augmented reality head-mounted displays for visual data analysis. Users can interact with 3D visualizations through a multimodal interaction concept, allowing for fluid interaction with the visualizations.](/stream.jpg?raw=true "STREAM combines spatially-aware tablets with augmented reality head-mounted displays for visual data analysis. Users can interact with 3D visualizations through a multimodal interaction concept, allowing for fluid interaction with the visualizations.")
+![STREAM combines spatially-aware tablets with augmented reality head-mounted displays for visual data analysis. Users can
+interact with 3D visualizations through a multimodal interaction concept, allowing for fluid interaction with the visualizations.](/stream.jpg?raw=true "STREAM combines spatially-aware tablets with augmented reality head-mounted displays for visual data analysis. Users can
+interact with 3D visualizations through a multimodal interaction concept, allowing for fluid interaction with the visualizations.")
 
 This is the code repository of the CHI'21 publication:
 
@@ -88,6 +91,6 @@ This repository is split into separate projects:
 
 ## Acknowledgments
 
-We thank NASA for offering an open data set, which was used for conducting the study in this project: https://exoplanetarchive.ipac.caltech.edu/
+Thanks to NASA for offering an open data set, which was used for conducting the study in this project: https://exoplanetarchive.ipac.caltech.edu/
 
-This research was funded by the [Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) – Project-ID 251654672 – TRR 161 (Project C01)](https://www.sfbtrr161.de/) and [SMARTACT (BMBF, Grant 01EL1820A)](https://www.uni-konstanz.de/smartact/).
+This research was funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) – Project-ID 251654672 – TRR 161 (Project C01) and SMARTACT (BMBF, Grant 01EL1820A).

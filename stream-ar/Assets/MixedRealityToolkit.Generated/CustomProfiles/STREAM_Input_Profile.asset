@@ -15,11 +15,11 @@ MonoBehaviour:
   isCustomProfile: 1
   dataProviderConfigurations:
   - componentType:
-      reference: Microsoft.MixedReality.Toolkit.WindowsMixedReality.Input.WindowsMixedRealityDeviceManager,
-        Microsoft.MixedReality.Toolkit.Providers.WindowsMixedReality
-    componentName: Windows Mixed Reality Device Manager
+      reference: Microsoft.MixedReality.Toolkit.XRSDK.WindowsMixedReality.WindowsMixedRealityDeviceManager,
+        Microsoft.MixedReality.Toolkit.Providers.XRSDK.WindowsMixedReality
+    componentName: XR SDK Windows Mixed Reality Device Manager
     priority: 0
-    runtimePlatform: 8
+    runtimePlatform: 9
     deviceManagerProfile: {fileID: 0}
   - componentType:
       reference: Microsoft.MixedReality.Toolkit.OpenVR.Input.OpenVRDeviceManager,
@@ -27,13 +27,6 @@ MonoBehaviour:
     componentName: OpenVR Device Manager
     priority: 0
     runtimePlatform: 7
-    deviceManagerProfile: {fileID: 0}
-  - componentType:
-      reference: Microsoft.MixedReality.Toolkit.Input.UnityInput.UnityJoystickManager,
-        Microsoft.MixedReality.Toolkit
-    componentName: Unity Joystick Manager
-    priority: 0
-    runtimePlatform: -1
     deviceManagerProfile: {fileID: 0}
   - componentType:
       reference: Microsoft.MixedReality.Toolkit.Input.UnityInput.UnityTouchDeviceManager,
@@ -57,12 +50,6 @@ MonoBehaviour:
     runtimePlatform: 25
     deviceManagerProfile: {fileID: 0}
   - componentType:
-      reference: Microsoft.MixedReality.Toolkit.Input.HandJointService, Microsoft.MixedReality.Toolkit
-    componentName: Hand Joint Service
-    priority: 0
-    runtimePlatform: -1
-    deviceManagerProfile: {fileID: 0}
-  - componentType:
       reference: Microsoft.MixedReality.Toolkit.Input.InputSimulationService, Microsoft.MixedReality.Toolkit.Services.InputSimulation
     componentName: Input Simulation Service
     priority: 0
@@ -74,13 +61,14 @@ MonoBehaviour:
   raycastProviderType:
     reference: Microsoft.MixedReality.Toolkit.Input.DefaultRaycastProvider, Microsoft.MixedReality.Toolkit.Services.InputSystem
   focusQueryBufferSize: 128
+  shouldUseGraphicsRaycast: 1
   focusIndividualCompoundCollider: 1
   inputActionsProfile: {fileID: 11400000, guid: 723eb97b02944311b92861f473eee53e,
     type: 2}
   inputActionRulesProfile: {fileID: 11400000, guid: 03945385d89102f41855bc8f5116b199,
     type: 2}
   pointerProfile: {fileID: 11400000, guid: d79a06e333937e847be75d4fdc01e1df, type: 2}
-  gesturesProfile: {fileID: 11400000, guid: bd7829a9b29409045a745b5a18299291, type: 2}
+  gesturesProfile: {fileID: 0}
   speechCommandsProfile: {fileID: 11400000, guid: 14314e6191a2cb6429c8a23596fa4f36,
     type: 2}
   enableControllerMapping: 1

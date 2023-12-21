@@ -19,6 +19,8 @@ namespace Assets.Modules.Networking
         const int UNITY_SERVER_PORT = 8836;
 #elif STREAM_AR
         const int UNITY_SERVER_PORT = 8835;
+#else
+        const int UNITY_SERVER_PORT = 8835;
 #endif
         const int BUFFER_SIZE = 10 * 1024 * 1024;
         const long HEARTBEAT_TIMEOUT_THRESHOLD_MS = 10000;
@@ -185,8 +187,8 @@ namespace Assets.Modules.Networking
                     socket.BeginReceive(_receiveBuffer, _receiveBufferOffset, _receiveBuffer.Length - _receiveBufferOffset, SocketFlags.None, _receiveCallback, null);
                     SendCommandSync(NetworkChannel.REGISTRATION, "register", _me.Name);
                     Debug.Log("Connection to web server established");
-                    Status = ConnectionStatus.Connected;
                     LastHeartbeatTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                    Status = ConnectionStatus.Connected;
                 }
                 catch (SocketException ex)
                 {

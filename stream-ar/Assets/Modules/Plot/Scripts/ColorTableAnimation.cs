@@ -112,13 +112,13 @@ namespace Assets.Modules.Plots
         {
             // use custom applyTexture instead of Graphics.Blit because
             // the latter won't work reliably on hololens...
-            //Graphics.Blit(source, _colorTexture);
+            Graphics.Blit(source, _colorTexture);
 
-            var kernelHandle = _transitionColorShader.FindKernel("ApplyTexture");
-            _transitionColorShader.SetInt("InputSize", source.width);
-            _transitionColorShader.SetTexture(kernelHandle, "Input", source);
-            _transitionColorShader.SetTexture(kernelHandle, "Result", _colorTexture);
-            _transitionColorShader.Dispatch(kernelHandle, source.width, 1, 1);
+            //var kernelHandle = _transitionColorShader.FindKernel("ApplyTexture");
+            //_transitionColorShader.SetInt("InputSize", source.width);
+            //_transitionColorShader.SetTexture(kernelHandle, "Input", source);
+            //_transitionColorShader.SetTexture(kernelHandle, "Result", _colorTexture);
+            //_transitionColorShader.Dispatch(kernelHandle, source.width, 1, 1);
         }
 
         private void AnimateTexture(Texture2D endTex)

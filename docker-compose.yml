@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  stream:
+    build: .
+    restart: always
+    container_name: stream
+    tty: true
+    volumes:
+        - ./data/:/stream/server/dist/data
+    ports:
+      - 8080:8080
+      - 8090:8090
+      - 8835:8835
+      - 8836:8836

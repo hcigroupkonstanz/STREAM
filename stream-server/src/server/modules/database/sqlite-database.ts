@@ -1,6 +1,8 @@
 import { Observable, Subject, of, from } from 'rxjs';
 import * as sqlite from 'better-sqlite3';
 import * as _ from 'lodash';
+import * as fs from 'fs';
+import * as path from 'path';
 import { Database } from './database';
 
 export class SqliteDatabase extends Database {
@@ -16,9 +18,9 @@ export class SqliteDatabase extends Database {
 
     public open(dbPath: string): void {
         try {
+            fs.mkdirSync(path.resolve(dbPath), { recursive: true });
             this.db = sqlite(dbPath, {
                 fileMustExist: false,
-                memory: dbPath === SqliteDatabase.MEMORY_DB,
                 readonly: false
             });
         } catch (err) {

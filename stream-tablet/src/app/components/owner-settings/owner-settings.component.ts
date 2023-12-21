@@ -1,7 +1,7 @@
-import { MatButtonToggleChange } from '@angular/material';
 import { OwnerService } from '@stream/services';
 import { Component, OnInit } from '@angular/core';
 import { ArClient } from '@stream/models';
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
 
 @Component({
     selector: 'app-owner-settings',

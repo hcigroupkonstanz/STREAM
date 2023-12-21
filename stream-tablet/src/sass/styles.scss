@@ -12,4 +12,4 @@ html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
 
 // disable iOS double-tap-to-zoom
-* { touch-action: pan-y; }
+* { touch-action: none; }

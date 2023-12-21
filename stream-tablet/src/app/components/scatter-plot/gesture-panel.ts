@@ -38,9 +38,9 @@ export class GesturePanel extends ChartElement {
         this.height = height;
 
         this.elementPosition = this.container.node().getBoundingClientRect();
-        const hammerElement = new Hammer(this.container.node());
+        const hammerElement = new Hammer(this.container.node(), { inputClass: Hammer.TouchMouseInput });
 
-        hammerElement.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+        hammerElement.get('pan').set({ direction: Hammer.DIRECTION_ALL, threshold: 0, pointers: 0, });
 
         hammerElement.on('panstart', event => this.createFilter(event));
         hammerElement.on('panmove', event => this.updateFilter(event, false));

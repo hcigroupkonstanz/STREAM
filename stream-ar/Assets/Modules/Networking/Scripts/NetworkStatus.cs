@@ -95,6 +95,10 @@ namespace Assets.Modules.Networking
                 {
                     if (ip.StartsWith("192"))
                     {
+                        // workaround for Magic Leap 2
+                        if (ip.StartsWith("192.168.168"))
+                            continue;
+
                         localIp = ip;
                         break;
                     }

@@ -113,16 +113,16 @@ namespace Assets.Modules.Calibration
 
         private void OnDrawGizmos()
         {
-            if (Application.isPlaying)
-            {
-                Gizmos.color = Color.blue;
-                Gizmos.DrawWireCube(Point1.transform.position, Vector3.one * 0.01f);
-                GizmosExtension.DrawRotation(Point1.transform.position, Point1.transform.rotation, 0.1f);
+            //if (Application.isPlaying)
+            //{
+            //    Gizmos.color = Color.blue;
+            //    Gizmos.DrawWireCube(Point1.transform.position, Vector3.one * 0.01f);
+            //    GizmosExtension.DrawRotation(Point1.transform.position, Point1.transform.rotation, 0.1f);
 
-                Gizmos.color = Color.green;
-                Gizmos.DrawWireCube(Point2.transform.position, Vector3.one * 0.01f);
-                GizmosExtension.DrawRotation(Point2.transform.position, Point2.transform.rotation, 0.1f);
-            }
+            //    Gizmos.color = Color.green;
+            //    Gizmos.DrawWireCube(Point2.transform.position, Vector3.one * 0.01f);
+            //    GizmosExtension.DrawRotation(Point2.transform.position, Point2.transform.rotation, 0.1f);
+            //}
         }
     }
 }

@@ -8,13 +8,26 @@ using UnityEngine.Networking;
 
 namespace Assets.Modules.Networking
 {
+
+    public class ForceAcceptAll : CertificateHandler
+    {
+        protected override bool ValidateCertificate(byte[] certificateData)
+        {
+            return true;
+        }
+    }
+
     public static class RestAPI
     {
         public static async UniTask<JArray> Get(string url)
         {
+            var cert = new ForceAcceptAll();
             await WebServerConnection.Instance.Connected;
-            var fullUrl = Combine($"http://{WebServerAddress.Current}:8080/api/", url);
-            var result = await GetJsonAsync(UnityWebRequest.Get(fullUrl));
+            var fullUrl = Combine($"https://{WebServerAddress.Current}:8080/api/", url);
+            var www = UnityWebRequest.Get(fullUrl);
+            www.certificateHandler = cert;
+            var result = await GetJsonAsync(www);
+            cert?.Dispose();
             return result;
         }
 

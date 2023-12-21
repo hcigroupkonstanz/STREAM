@@ -55,7 +55,7 @@ namespace Assets.Modules.Calibration
                 //objectTracker.DeactivateDataSet(dataSet);
 
                 var deviceWidth = client.GetDeviceSizeCm().x;
-                var vuforiaMarker = GetComponent<Vuforia.ImageTargetBehaviour>();
+                //var vuforiaMarker = GetComponent<Vuforia.ImageTargetBehaviour>();
                 // vuforiaMarker.SetWidth(deviceWidth);
                 // Debug.Log($"Setting vuforia marker size to {deviceWidth}");
 

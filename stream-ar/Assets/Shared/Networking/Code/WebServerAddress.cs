@@ -32,7 +32,7 @@ namespace Assets.Modules.Networking
             // load last known ip
             _current = PlayerPrefs.GetString(PREF_LAST_IP);
             if (String.IsNullOrEmpty(_current))
-                _current = "192.168.178.27";
+                _current = "localhost";
         }
     }
 }
