@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: STREAM_MixedRealityToolkitConfigurationProfile
   m_EditorClassIdentifier: 
   isCustomProfile: 1
+  experienceSettingsProfile: {fileID: 0}
   targetExperienceScale: 3
   enableCameraSystem: 1
-  cameraProfile: {fileID: 11400000, guid: 6a6ea8e8cca71344ba773e4317537580, type: 2}
+  cameraProfile: {fileID: 11400000, guid: 8433c577239185b40be62f8e910e64b2, type: 2}
   cameraSystemType:
     reference: Microsoft.MixedReality.Toolkit.CameraSystem.MixedRealityCameraSystem,
       Microsoft.MixedReality.Toolkit.Services.CameraSystem
@@ -26,6 +27,8 @@ MonoBehaviour:
   enableBoundarySystem: 0
   boundarySystemType:
     reference: Microsoft.MixedReality.Toolkit.XRSDK.XRSDKBoundarySystem, Microsoft.MixedReality.Toolkit.Providers.XRSDK
+  xrsdkBoundarySystemType:
+    reference: 
   boundaryVisualizationProfile: {fileID: 11400000, guid: 6d28cce596b44bd3897ca86f8b24e076,
     type: 2}
   enableTeleportSystem: 0

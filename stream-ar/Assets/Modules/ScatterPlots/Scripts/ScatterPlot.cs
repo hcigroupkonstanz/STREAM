@@ -12,8 +12,8 @@ namespace Assets.Modules.ScatterPlots
         public DataRenderer Renderer;
         public ComputeShader TransitionShaderTemplate;
 
-        public RenderTexture PositionTexture { get; private set; }
-        public RenderTexture NullTexture { get; private set; }
+        public RenderTexture PositionTexture;// { get; private set; }
+        public RenderTexture NullTexture;// { get; private set; }
         public RenderTexture DataIndicesTexture;
 
         private RenderTexture _colorTexture;
@@ -158,13 +158,14 @@ namespace Assets.Modules.ScatterPlots
             {
                 AnimateTexture(targetPosTexture, PositionTexture, _transitionPositionShader);
                 AnimateTexture(targetNullTexture, NullTexture, _transitionNullShader);
-                Renderer.SetTextures(targetPosTexture, targetNullTexture, DataIndicesTexture);
+                //Renderer.SetTextures(targetPosTexture, targetNullTexture, DataIndicesTexture);
             }
         }
 
 
         private void InitTexture()
         {
+            Debug.Log("Init Texture");
             ReleaseTextures();
 
             PositionTexture = CreateRenderTexture();
@@ -213,13 +214,13 @@ namespace Assets.Modules.ScatterPlots
         {
             // use custom applyTexture instead of Graphics.Blit because
             // the latter won't work reliably on hololens...
-            Graphics.Blit(source, target);
+            //Graphics.Blit(source, target);
 
-            //var kernelHandle = shader.FindKernel("ApplyTexture");
-            //shader.SetInt("InputSize", source.width);
-            //shader.SetTexture(kernelHandle, "Input", source);
-            //shader.SetTexture(kernelHandle, "Result", target);
-            //shader.Dispatch(kernelHandle, source.width, 1, 1);
+            var kernelHandle = shader.FindKernel("ApplyTexture");
+            shader.SetInt("InputSize", source.width);
+            shader.SetTexture(kernelHandle, "Input", source);
+            shader.SetTexture(kernelHandle, "Result", target);
+            shader.Dispatch(kernelHandle, source.width, 1, 1);
         }
 
         private void AnimateTexture(Texture2D endTex, RenderTexture resultTex, ComputeShader shader, bool cleanupEndTexture = true)

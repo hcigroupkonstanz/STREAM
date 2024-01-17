@@ -3,39 +3,39 @@
     "m_SelectedPackage": {
         "deviceId": "GB62XT0000RG",
         "name": "com.hci.uni.kn.STREAM",
-        "processId": 19391,
+        "processId": 18879,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "GB62XT0000RG",
-            "name": "com.magicleap.homemenu",
-            "processId": 5562,
-            "exited": false
-        },
-        {
-            "deviceId": "GB62XT0000RG",
-            "name": "com.hci.uni.kn.STREAM",
-            "processId": 14937,
-            "exited": true
-        },
-        {
-            "deviceId": "GB62XT0000RG",
-            "name": "com.hci.uni.kn.STREAM",
-            "processId": 16055,
-            "exited": true
-        },
-        {
-            "deviceId": "GB62XT0000RG",
-            "name": "com.hci.uni.kn.STREAM",
-            "processId": 17833,
-            "exited": false
-        },
-        {
-            "deviceId": "GB62XT0000RG",
             "name": "com.hci.uni.kn.STREAM",
             "processId": 19391,
+            "exited": true
+        },
+        {
+            "deviceId": "GB62XT0000RG",
+            "name": "com.hci.uni.kn.STREAM",
+            "processId": 14390,
+            "exited": true
+        },
+        {
+            "deviceId": "GB62XT0000RG",
+            "name": "com.hci.uni.kn.STREAM",
+            "processId": 17519,
+            "exited": true
+        },
+        {
+            "deviceId": "GB62XT0000RG",
+            "name": "com.hci.uni.kn.STREAM",
+            "processId": 18576,
+            "exited": true
+        },
+        {
+            "deviceId": "GB62XT0000RG",
+            "name": "com.hci.uni.kn.STREAM",
+            "processId": 18879,
             "exited": false
         }
     ],

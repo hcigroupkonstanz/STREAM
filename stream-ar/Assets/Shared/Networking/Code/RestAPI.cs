@@ -23,7 +23,7 @@ namespace Assets.Modules.Networking
         {
             var cert = new ForceAcceptAll();
             await WebServerConnection.Instance.Connected;
-            var fullUrl = Combine($"https://{WebServerAddress.Current}:8080/api/", url);
+            var fullUrl = Combine($"https://{WebServerAddress.Current}:5080/api/", url);
             var www = UnityWebRequest.Get(fullUrl);
             www.certificateHandler = cert;
             var result = await GetJsonAsync(www);

@@ -1,8 +1,8 @@
 export const Config = {
-    WEBSERVER_PORT: 8080,
+    WEBSERVER_PORT: 5080,
     WEBSERVER_ROOT: __dirname + '/../../../stream-tablet/',
 
-    ADMIN_SERVER_PORT: 8090,
+    ADMIN_SERVER_PORT: 5090,
     ADMIN_SERVER_ROOT: __dirname + '/../../../ui/',
 
     SESSIONDB_PATH: __dirname + '/../data/session.db',

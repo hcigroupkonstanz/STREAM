@@ -16,9 +16,9 @@ RUN npm run build
 
 WORKDIR /stream/stream-server
 # Webserver interface
-EXPOSE 8080
+EXPOSE 5080
 # Admin Server port
-EXPOSE 8090
+EXPOSE 5090
 # Unity AR port
 EXPOSE 8835
 # Unity Tracking Port

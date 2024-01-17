@@ -167,6 +167,7 @@ namespace Assets.Modules.Networking
 
             // avoid multithreading problems due to variable changes...
             var ip = WebServerAddress.Current;
+            Debug.Log($"Connecting to ${ip}");
             var socket = _socket;
 
 
