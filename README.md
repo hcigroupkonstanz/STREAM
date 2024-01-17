@@ -12,8 +12,9 @@
 		<a href="TODO">Video</a>
 	</strong>
 </p>
+
 ![STREAM combines spatially-aware tablets with augmented reality head-mounted displays for visual data analysis. Users can
-interact with 3D visualizations through a multimodal interaction concept, allowing for fluid interaction with the visualizations.](https://github.com/hcigroupkonstanz/STREAM/blob/master/stream.jpg?raw=true)
+interact with 3D visualizations through a multimodal interaction concept, allowing for fluid interaction with the visualizations.](./stream.jpg?raw=true)
 
 This is the code repository of the CHI'21 publication:
 
